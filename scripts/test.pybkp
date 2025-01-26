@@ -1,3 +1,5 @@
+import sys
+import os
 import snowflake.connector  # Connects your Python code to Snowflake.
 from config import SNOWFLAKE_CONFIG 
 
