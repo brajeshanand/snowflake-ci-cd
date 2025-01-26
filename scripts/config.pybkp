@@ -1,0 +1,13 @@
+import os
+
+# Snowflake connection configuration
+SNOWFLAKE_CONFIG = {
+    "user": os.getenv("SNOWFLAKE_USER"),
+    "password": os.getenv("SNOWFLAKE_PASSWORD"),
+    "account": os.getenv("SNOWFLAKE_ACCOUNT"),
+    "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE"),
+    "role": os.getenv("SNOWFLAKE_ROLE"),
+    "database": "DEV_DATABASE",
+    "schema": "DEV_SCHEMA"
+}
+
