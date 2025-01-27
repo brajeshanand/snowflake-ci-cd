@@ -23,16 +23,11 @@ jobs:
       - name: Deploy Snowflake scripts
         run: python scripts/deploy.py
         env:
-
-          SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-          SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-          PRIVATE_KEY_SOURCE: "GITHUB"
           SNOWFLAKE_WAREHOUSE: "SANDBOX_WH"
           SNOWFLAKE_ROLE: "DEV_ROLE"
-
 
   test:
     runs-on: ubuntu-latest
@@ -52,11 +47,9 @@ jobs:
       - name: Run Snowflake tests
         run: python scripts/test.py
         env:
-          SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-          SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-          SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-          PRIVATE_KEY_SOURCE: "GITHUB"
           SNOWFLAKE_WAREHOUSE: "SANDBOX_WH"
           SNOWFLAKE_ROLE: "DEV_ROLE"
+
